@@ -44,7 +44,7 @@ jobs:
           path: springfox-grails-contract-tests/build/reports/tests
           destination: reports
       - store_test_results:
-          path: springfox-grails-contract-tests/build/test-results/test
+          path: springfox-grails-contract-tests/build/test-results/integrationTest
       - run:
           name: Publish to artifactory
           command: ./gradlew artifactoryPublish -Partifactory_repo_key=dcebotarenco-libs-snapshot 
