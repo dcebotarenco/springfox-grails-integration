@@ -12,6 +12,7 @@ ext {
     buildTime = new SimpleDateFormat('HH:mm:ss.SSSZ').format(buildTimeAndDate)
     artifactory_user = project.hasProperty('artifactory_user') ? project.artifactory_user : System.getenv('ARTIFACTORY_USER')
     artifactory_repo_key = project.hasProperty('artifactory_repo_key') ? project.artifactory_repo_key : System.getenv('ARTIFACTORY_REPO_KEY')
+    artifactory_repo_url = project.hasProperty('artifactory_repo_url') ? project.artifactory_repo_key : System.getenv('ARTIFACTORY_REPO_URL')
     artifactory_password = project.hasProperty('artifactory_password') ? project.artifactory_password : System.getenv('ARTIFACTORY_PASSWORD')
 }
 

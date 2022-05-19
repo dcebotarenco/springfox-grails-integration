@@ -30,7 +30,7 @@ jobs:
           key: jars-{{ checksum "build.gradle" }}-{{ checksum  "build.gradle" }}
       - run:
           name: Run Tests
-          command: ./gradlew clean build jacocoTestReport -Partifactory_repo_key=${ARTIFACTORY_REPO_KEY} -Partifactory_repo_url=${ARTIFACTORY_REPO_URL}
+          command: ./gradlew clean build jacocoTestReport
           no_output_timeout: 900s
           environment:
             _JAVA_OPTIONS: -Xmx1024M -XX:ReservedCodeCacheSize=512M
@@ -47,6 +47,8 @@ jobs:
           path: springfox-grails-contract-tests/build/test-results/integrationTest
       - run:
           name: Publish to artifactory
-          command: ./gradlew artifactoryPublish -Partifactory_repo_key=${ARTIFACTORY_REPO_KEY} -Partifactory_repo_url=${ARTIFACTORY_REPO_URL}
+          # Requires ARTIFACTORY_REPO_KEY, ARTIFACTORY_REPO_URL, ARTIFACTORY_USER, ARTIFACTORY_PASSWORD
+          # See build.gradle ext{} block
+          command: ./gradlew artifactoryPublish
           no_output_timeout: 900s
 
