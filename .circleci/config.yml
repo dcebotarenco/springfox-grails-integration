@@ -47,6 +47,6 @@ jobs:
           path: springfox-grails-contract-tests/build/test-results/integrationTest
       - run:
           name: Publish to artifactory
-          command: ./gradlew artifactoryPublish -Partifactory_repo_key=dcebotarenco-libs-snapshot 
+          command: ./gradlew artifactoryPublish -Partifactory_repo_key=${ARTIFACTORY_REPO_KEY}
           no_output_timeout: 900s
 

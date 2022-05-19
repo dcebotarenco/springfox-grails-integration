@@ -27,14 +27,6 @@ allprojects {
     version = '4.0.1-SNAPSHOT'
 
     repositories {
-        maven {
-            name 'release-repository'
-            url "https://dcebotarenco.jfrog.io/artifactory/dcebotarenco-libs-snapshot"
-        }
-        maven {
-            name 'snapshot-repository'
-            url "https://dcebotarenco.jfrog.io/artifactory/dcebotarenco-libs-release"
-        }
         mavenCentral()
         maven { url "https://plugins.gradle.org/m2/" }
         maven { url "https://repo.grails.org/grails/core" }

@@ -22,7 +22,7 @@ publishing {
             pom {
                 name = "springfox-grails-integration"
                 packaging = 'jar'
-                url = 'https://github.com/dcebotarenco/springfox-grails-integration'
+                url = 'https://github.com/springfox/springfox-grails-integration'
                 description = 'Springfox Grails Integration Module'
 
                 developers {
@@ -38,12 +38,12 @@ publishing {
                 licenses {
                     license {
                         name = 'Apache-2.0'
-                        url = 'https://github.com/dcebotarenco/springfox-grails-integration/blob/master/LICENSE.txt'
+                        url = 'https://github.com/springfox/springfox-grails-integration/blob/master/LICENSE.txt'
                         distribution = 'repo'
                     }
                 }
                 scm {
-                    url = 'https://github.com/dcebotarenco/springfox-grails-integration.git'
+                    url = 'https://github.com/springfox/springfox-grails-integration.git'
                 }
             }
         }
@@ -51,7 +51,7 @@ publishing {
 }
 
 artifactory {
-    contextUrl = 'https://dcebotarenco.jfrog.io/artifactory'
+    contextUrl = "${artifactory_repo_url}"
     publish {
         repository {
             repoKey = "${artifactory_repo_key}"
