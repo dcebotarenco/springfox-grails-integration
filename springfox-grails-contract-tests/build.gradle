@@ -156,3 +156,4 @@ assets {
 springBoot {
     mainClassName = 'grails.springfox.sample.Application'
 }
+
