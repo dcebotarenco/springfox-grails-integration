@@ -199,10 +199,12 @@ registered as a bean to augment default behavior.
 - GeneratedClassNamingStrategy - for naming the generated class mixins
 
 
-//== Demo application
-//
-//The demo application is available in https://github.com/springfox/springfox-grails-demo[this repository]. You can
-//see a live demo running or https://immense-escarpment-17128.herokuapp.com/swagger-ui.html[heroku here].
+== Demo application on Heroku
+To deploy on heroku
+```
+heroku config:set GRADLE_TASK="assemble -Pheroku"
+```
+You can see a live demo running or https://grails-integration-test.herokuapp.com/swagger-ui.html[heroku here].
 
 == Troubleshooting
 
