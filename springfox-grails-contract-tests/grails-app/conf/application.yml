@@ -89,8 +89,10 @@ environments:
             url: jdbc:h2:mem:testDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE
     production:
         dataSource:
-            dbCreate: none
-            url: jdbc:h2:./prodDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE
+            driverClassName: "org.postgresql.Driver"
+            dialect: org.hibernate.dialect.PostgreSQLDialect
+            dbCreate: update
+            url: ${JDBC_DATABASE_URL}
             properties:
                 jmxEnabled: true
                 initialSize: 5
