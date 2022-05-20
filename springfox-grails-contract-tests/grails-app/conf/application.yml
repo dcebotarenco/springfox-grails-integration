@@ -120,7 +120,3 @@ spring:
     h2:
         console:
             enabled: true
-
-server:
-    port:
-        ${$PORT:8080}
