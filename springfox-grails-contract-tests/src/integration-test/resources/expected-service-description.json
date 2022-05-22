@@ -1644,24 +1644,21 @@
     "Album": {
       "type": "object",
       "properties": {
-        "albumArtistId": {
-          "type": "integer",
-          "format": "int64"
+        "albumArtist": {
+          "$ref": "#/definitions/Id"
         },
         "coverImage": {
           "type": "string"
         },
-        "genreId": {
-          "type": "integer",
-          "format": "int64"
+        "genre": {
+          "$ref": "#/definitions/Id"
         },
         "id": {
           "type": "integer",
           "format": "int64"
         },
-        "labelId": {
-          "type": "integer",
-          "format": "int64"
+        "label": {
+          "$ref": "#/definitions/Id"
         },
         "rating": {
           "type": "string",
@@ -1699,9 +1696,8 @@
         "name": {
           "type": "string"
         },
-        "signedToId": {
-          "type": "integer",
-          "format": "int64"
+        "signedTo": {
+          "$ref": "#/definitions/Id"
         }
       },
       "title": "Artist"
@@ -1803,6 +1799,16 @@
       },
       "title": "Genre"
     },
+    "Id": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        }
+      },
+      "title": "Id"
+    },
     "Label": {
       "type": "object",
       "properties": {
@@ -1849,17 +1855,14 @@
     "Song": {
       "type": "object",
       "properties": {
-        "albumId": {
-          "type": "integer",
-          "format": "int64"
+        "album": {
+          "$ref": "#/definitions/Id"
         },
-        "artistId": {
-          "type": "integer",
-          "format": "int64"
+        "artist": {
+          "$ref": "#/definitions/Id"
         },
-        "genreId": {
-          "type": "integer",
-          "format": "int64"
+        "genre": {
+          "$ref": "#/definitions/Id"
         },
         "id": {
           "type": "integer",

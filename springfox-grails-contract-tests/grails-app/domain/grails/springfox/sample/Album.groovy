@@ -20,7 +20,7 @@ class Album {
         albumArtist nullable: false
         releaseDate nullable: true
         rating nullable: true
-        label nullable:true
-        genre nullable: true
+        label nullable:false
+        genre nullable: false
     }
 }
