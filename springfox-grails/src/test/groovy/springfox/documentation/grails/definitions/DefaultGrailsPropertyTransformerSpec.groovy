@@ -1,6 +1,7 @@
 package springfox.documentation.grails.definitions
 
 import org.grails.datastore.mapping.model.PersistentEntity
+import org.grails.datastore.mapping.model.types.Identity
 import org.grails.datastore.mapping.model.types.Simple
 import spock.lang.Specification
 import spock.lang.Unroll
@@ -24,7 +25,10 @@ class DefaultGrailsPropertyTransformerSpec extends Specification {
   }
 
   def id() {
-    scalarProperty("id", Long)
+    def property = Stub(Identity)
+    property.name >> 'id'
+    property.type >> Long
+    property
   }
 
   def scalarProperty(propertyName, propertyType) {

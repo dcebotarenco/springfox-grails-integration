@@ -6,7 +6,7 @@ import springfox.documentation.builders.AlternateTypePropertyBuilder;
 public class DefaultGrailsPropertyTransformer implements GrailsPropertyTransformer {
     @Override
     public AlternateTypePropertyBuilder apply(PersistentProperty property) {
-        Class<?> type = property.getType();
+        Class<?> type =  property.getType();
         return new AlternateTypePropertyBuilder()
             .withName(property.getName())
             .withType(type)

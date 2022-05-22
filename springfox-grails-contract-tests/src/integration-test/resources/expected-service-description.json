@@ -5,8 +5,7 @@
     "version": "1.0",
     "title": "Api Documentation",
     "termsOfService": "urn:tos",
-    "contact": {
-    },
+    "contact": {},
     "license": {
       "name": "Apache 2.0",
       "url": "http://www.apache.org/licenses/LICENSE-2.0"
@@ -1644,24 +1643,21 @@
     "Album": {
       "type": "object",
       "properties": {
-        "albumArtistId": {
-          "type": "integer",
-          "format": "int64"
+        "albumArtist": {
+          "$ref": "#/definitions/Artist"
         },
         "coverImage": {
           "type": "string"
         },
-        "genreId": {
-          "type": "integer",
-          "format": "int64"
+        "genre": {
+          "$ref": "#/definitions/Genre"
         },
         "id": {
           "type": "integer",
           "format": "int64"
         },
-        "labelId": {
-          "type": "integer",
-          "format": "int64"
+        "label": {
+          "$ref": "#/definitions/Label"
         },
         "rating": {
           "type": "string",
@@ -1677,6 +1673,12 @@
           "type": "string",
           "format": "date-time"
         },
+        "songs": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
         "subtitle": {
           "type": "string"
         },
@@ -1689,6 +1691,12 @@
     "Artist": {
       "type": "object",
       "properties": {
+        "albums": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
         "id": {
           "type": "integer",
           "format": "int64"
@@ -1699,9 +1707,14 @@
         "name": {
           "type": "string"
         },
-        "signedToId": {
-          "type": "integer",
-          "format": "int64"
+        "signedTo": {
+          "$ref": "#/definitions/Label"
+        },
+        "songs": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
         }
       },
       "title": "Artist"
@@ -1793,6 +1806,12 @@
     "Genre": {
       "type": "object",
       "properties": {
+        "albums": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
         "id": {
           "type": "integer",
           "format": "int64"
@@ -1808,6 +1827,18 @@
       "properties": {
         "address": {
           "type": "string"
+        },
+        "albums": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "artists": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
         },
         "id": {
           "type": "integer",
@@ -1849,17 +1880,14 @@
     "Song": {
       "type": "object",
       "properties": {
-        "albumId": {
-          "type": "integer",
-          "format": "int64"
+        "album": {
+          "$ref": "#/definitions/Album"
         },
-        "artistId": {
-          "type": "integer",
-          "format": "int64"
+        "artist": {
+          "$ref": "#/definitions/Artist"
         },
-        "genreId": {
-          "type": "integer",
-          "format": "int64"
+        "genre": {
+          "$ref": "#/definitions/Genre"
         },
         "id": {
           "type": "integer",

@@ -23,7 +23,7 @@ class DefaultGrailsPropertySelectorSpec extends Specification {
         scalarProperty('name')    | true
         manyToOne('artist')       | true
         oneToOne('artist')        | true
-        oneToMany('books')        | false
+        oneToMany('books')        | true
         scalarProperty('version') | false
     }
 

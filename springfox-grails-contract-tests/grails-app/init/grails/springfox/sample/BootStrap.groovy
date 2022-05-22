@@ -1,8 +1,7 @@
 package grails.springfox.sample
 
-import org.grails.plugins.web.controllers.ControllersGrailsPlugin
+
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import springfox.documentation.spring.web.plugins.DocumentationPluginsBootstrapper
 
 class BootStrap {
@@ -15,6 +14,9 @@ class BootStrap {
             ['Rock', 'Pop', 'Metal', 'Folk'].each {
                 new Genre(name: it).save(flush: true)
             }
+
+            new Artist(name: 'John', isBand: false,
+                       signedTo: new Label(name: 'name', address: 'address').save() ).save()
         }
         bootstrapper.start()
     }

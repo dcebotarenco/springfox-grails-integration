@@ -4,6 +4,7 @@ import com.fasterxml.classmate.TypeResolver
 import grails.core.GrailsApplication
 import org.grails.datastore.mapping.model.MappingContext
 import org.grails.datastore.mapping.model.PersistentEntity
+import org.grails.datastore.mapping.model.types.Identity
 import org.grails.datastore.mapping.model.types.Simple
 import spock.lang.Specification
 import springfox.documentation.grails.doubles.Pet
@@ -48,11 +49,19 @@ class DefaultGrailsAlternateTypeRuleConventionSpec extends Specification {
         domain.name >> "Pet"
         domain.javaClass >> Pet
         domain.persistentProperties >> [property("name", String)]
+        domain.identity >> identityProperty('id', Long)
         domain
     }
 
     def property(name, type) {
         def property = Stub(Simple)
+        property.name >> name
+        property.type >> type
+        property
+    }
+
+    def identityProperty(String name, Class type) {
+        def property = Stub(Identity)
         property.name >> name
         property.type >> type
         property
