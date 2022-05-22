@@ -21,11 +21,11 @@ class DefaultGrailsPropertyTransformerSpec extends Specification {
         boolean isPresent = transformed.auxiliaryType != null
         isPresent == expectedAuxiliaryTypePresent
         where:
-        property                       || name            | type                                                      | expectedAuxiliaryTypePresent
-        id()                           || "id"            | Long.class.name                                           | false
+        property                     || name            | type                                                      | expectedAuxiliaryTypePresent
+        id()                         || "id"            | Long.name                                                 | false
         scalarProperty("test",
-                       String)         || "test"          | String.class.name                                         | false
-        relatedToOneEntityProperty()   || "relatedEntity" | "springfox.documentation.grails.definitions.generated.Id" | true
+                       String)       || "test"          | String.name                                               | false
+        relatedToOneEntityProperty() || "relatedEntity" | "springfox.documentation.grails.definitions.generated.Id" | true
     }
 
     def id() {
@@ -51,14 +51,14 @@ class DefaultGrailsPropertyTransformerSpec extends Specification {
     }
 
 
-    PersistentEntity domainClass(Class clazz) {
+    protected PersistentEntity domainClass(Class clazz) {
         PersistentEntity domain = Stub(PersistentEntity)
         domain.javaClass >> clazz
         domain.identity >> id()
         return domain
     }
 
-    PersistentEntity relatedEntityDomain() {
+    protected PersistentEntity relatedEntityDomain() {
         def domain = Stub(PersistentEntity)
         domain.identity >> id()
         domain
