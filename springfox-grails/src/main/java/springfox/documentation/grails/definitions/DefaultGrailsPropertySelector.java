@@ -1,15 +1,24 @@
 package springfox.documentation.grails.definitions;
 
-import com.google.common.base.Objects;
 import org.grails.datastore.mapping.model.PersistentProperty;
-import org.grails.datastore.mapping.model.types.Identity;
-import org.grails.datastore.mapping.model.types.Simple;
-import org.grails.datastore.mapping.model.types.ToOne;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class DefaultGrailsPropertySelector implements GrailsPropertySelector {
+
+    private static final List<String> forbiddenProperties = new ArrayList<>();
+
+    static {
+        forbiddenProperties.add("version");
+        forbiddenProperties.add("dirty");
+        forbiddenProperties.add("dirtyPropertyNames");
+        forbiddenProperties.add("errors");
+        forbiddenProperties.add("attached");
+    }
+
     @Override
     public boolean test(PersistentProperty each) {
-        return (each instanceof Simple || each instanceof ToOne || each instanceof Identity)
-            && !Objects.equal(each.getName(), "version");
+        return forbiddenProperties.stream().noneMatch(n -> n.equals(each.getName()));
     }
 }

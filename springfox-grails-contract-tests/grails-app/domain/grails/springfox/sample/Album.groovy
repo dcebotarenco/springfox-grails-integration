@@ -14,13 +14,13 @@ class Album {
 
 
     static constraints = {
-        title nullable: false
-        subtitle nullable: true
-        coverImage nullable: true, url: true
+        title nullable:false
+        subtitle nullable:true
+        coverImage nullable: true, url:true
         albumArtist nullable: false
         releaseDate nullable: true
         rating nullable: true
-        label nullable: true
+        label nullable:true
         genre nullable: true
     }
 }
