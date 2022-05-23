@@ -52,9 +52,6 @@ dependencyManagement {
     }
     applyMavenExclusions false
 }
-// configurations.all {
-//     exclude group: 'org.reactivestreams', module: 'reactive-streams'
-// }
 
 dependencies {
 
