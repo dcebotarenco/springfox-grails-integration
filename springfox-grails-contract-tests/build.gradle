@@ -150,7 +150,3 @@ assets {
 }
 //endregion
 
-// springBoot {
-//     mainClassName = 'grails.springfox.sample.Application'
-// }
-
