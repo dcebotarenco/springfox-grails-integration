@@ -112,10 +112,6 @@ environments:
                 jdbcInterceptors: ConnectionState
                 defaultTransactionIsolation: 2 # TRANSACTION_READ_COMMITTED
 
-springfox:
-    documentation:
-        auto-startup: false
-
 spring:
     h2:
         console:

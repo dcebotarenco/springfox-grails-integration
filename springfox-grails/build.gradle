@@ -97,6 +97,9 @@ dependencies {
 }
 
 jar {
+    metaInf {
+        from 'META-INF/spring.factories'
+    }
     manifest {
         attributes(
             'Built-By': 'Dilip Krishnan, Dan Cebotarenco',

@@ -143,30 +143,14 @@ class Application extends GrailsAutoConfiguration {
     }
 }
 ----
-Disable auto start-up of the springfox documentation. It is bounded to `SmartLifecycle` which triggers it before the GORM mapping context is initialized by  `DomainClassGrailsPlugin`
-[source,yml]
-----
-springfox:
-    documentation:
-        auto-startup: false
-----
-Then, when the servlet is ready, call it manually
-[source,groovy]
-----
+Grails  spring fox implementation will start automatically when the application is ready.
 
-class BootStrap {
+.There are 2 beans:
+ * `DocumentationPluginsBootstrapper` [original]
+ * `GrailsDocumentationPluginsBootstrapper` [new]
 
-    @Autowired
-    DocumentationPluginsBootstrapper bootstrapper
-
-    def init = { servletContext ->
-        bootstrapper.start() //manual start
-    }
-
-    def destroy = {
-    }
-}
-----
+The `DocumentationPluginsBootstrapper` is disabled by `SpringDocumentationPluginsPostProcessor` which sets the`springfox.documentation.auto-startup` to false. +
+The `GrailsDocumentationPluginsBootstrapper` is run by `GrailsDocumentationPluginsLifeCycle` instead.
 
 == Swagger UI integration
 
